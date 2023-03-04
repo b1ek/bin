@@ -20,7 +20,8 @@ block content
                     | Admin email is: 
                     a(href='mailto:' + email)= email
         else
-            p(align='center')
-                | Files: 
-                | #{submitted}/#{process.env.MAXFILES}
-                | (#{Math.floor((submitted * 10000)/process.env.MAXFILES) / 100}%)
+            if (process.env.SHOW_SUBMITTED == 'true')
+                p(align='center')
+                    | Files: 
+                    | #{submitted}/#{process.env.MAXFILES}
+                    | (#{Math.floor((submitted * 10000)/process.env.MAXFILES) / 100}%)
