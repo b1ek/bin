@@ -9,3 +9,5 @@ services:
       - '${APP_PORT:-8080}:${APP_PORT:-8080}'
     volumes:
       - './usercontent:/opt/code/usercontent'
+      # uncomment this for debug mode
+      #- './:/opt/code'
