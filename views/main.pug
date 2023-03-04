@@ -5,4 +5,10 @@ block content
         p(align='center')
             textarea(name='text' class='data' placeholder='Put your text in here!' + (maxlen ? ` (Max length is ${maxlen} bytes)` : ''))
             br
-            input(type='submit' value='Upload!')
+            if (!exceeded)
+                input(type='submit' value='Upload!')
+        if (exceeded)
+            p(style='color:darkred;font-weight:bold;font-size:9pt')
+                | Max uploads limit exceeded. No more uploads would be accepted.
+                br
+                | Contact site administrator so they would increase the limit or delete some uploads.

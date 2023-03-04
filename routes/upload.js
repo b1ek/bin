@@ -3,7 +3,15 @@ const router = express.Router();
 const handler = require('express-async-handler');
 const content = require('../helpers/content');
 
+const { MAXFILES } = process.env;
+
 async function upload(req, res) {
+
+    if (content.submitted() >= MAXFILES) {
+        res.status(405).send('Not allowed');
+        return;
+    }
+
     const data = req.body.text;
     const id = await content.create(data);
     res.redirect(
