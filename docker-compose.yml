@@ -11,3 +11,4 @@ services:
       - './usercontent:/opt/code/usercontent'
       # uncomment this for debug mode
       #- './:/opt/code'
+    restart: always
