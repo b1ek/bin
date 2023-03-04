@@ -1,0 +1,17 @@
+block root
+
+
+doctype html
+html(lang='en_US')
+    head
+        title blek! Bin#{title ? title : ''}
+        link(rel='stylesheet' href='/static/main.css')
+    body
+        h1(align='center') blek! Bin
+        p(align='center')
+            a(href='https://git.blek.codes/blek/bin') Source
+            |  | 
+            a(href='http://blek.codes/project/blek_bin') Project page
+        hr
+        block content
+        

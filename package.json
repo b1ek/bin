@@ -1,0 +1,18 @@
+{
+  "name": "blek-bin",
+  "version": "0.0.1",
+  "description": "A privacy-respecting, js-free alternative to pastebin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js"
+  },
+  "author": "b1ek",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "pug": "^3.0.2"
+  }
+}

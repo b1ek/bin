@@ -1,0 +1,8 @@
+extends template/main.pug
+
+block content
+    form(action='/upload' method='POST')
+        p(align='center')
+            textarea(name='text' class='data' placeholder='Put your text in here!' + (maxlen ? ` (Max length is ${maxlen} bytes)` : ''))
+            br
+            input(type='submit' value='Upload!')
