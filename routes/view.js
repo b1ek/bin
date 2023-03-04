@@ -6,6 +6,7 @@ const content = require('../helpers/content');
 async function view(req, res) {
     const data = await content.get(req.query.id);
     if (req.query.raw) {
+        res.header('Content-Type', 'text/plain');
         res.send(data);
         return;
     }
