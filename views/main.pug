@@ -1,6 +1,7 @@
 extends template/main.pug
 
 block content
+    - var exceeded = submitted >= process.env.MAXFILES
     form(action='/upload' method='POST')
         p(align='center')
             textarea(name='text' class='data' placeholder='Put your text in here!' + (maxlen ? ` (Max length is ${maxlen} bytes)` : ''))
@@ -18,3 +19,8 @@ block content
                     br
                     | Admin email is: 
                     a(href='mailto:' + email)= email
+        else
+            p(align='center')
+                | Files: 
+                | #{submitted}/#{process.env.MAXFILES}
+                | (#{Math.floor((submitted * 10000)/process.env.MAXFILES) / 100}%)

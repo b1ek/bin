@@ -6,7 +6,7 @@ const content = require('../helpers/content');
 async function index(req, res) {
     res.render('main', {
         maxlen: process.env.MAXLEN,
-        exceeded: content.submitted() >= process.env.MAXFILES
+        submitted: content.submitted()
     });
 }
 
