@@ -6,8 +6,7 @@ const glob = require('glob');
 const root = path.join(process.cwd(), '/usercontent');
 const { MAXFILES } = process.env;
 
-console.log(root);
-
+// console.log(root);
 
 let initalized = false;
 
@@ -15,21 +14,17 @@ let submitted = 0;
 
 async function init() {
     if (initalized) return;
-    glob(root + '/**', undefined, (err, files) => {
-        if (err) {
-            console.error(err);
-            return;
-        }
-        files.filter(file => {
-            return !file.startsWith('.');
-        }).forEach(file => {
-            submitted++;
-        });
-        initalized = true;
-    });
-}
 
-function submitted() {return submitted;}
+    let files = await glob(root + '/*');
+    files.filter(file => {return !file.startsWith('.')})
+        .forEach(file => {
+            submitted++;
+            return;
+        });
+}
+init();
+
+function get_submitted() {return submitted;}
 
 const make_id = () => {
     return crypto.randomBytes(8).toString('hex');
@@ -53,4 +48,4 @@ async function create(data) {
     return id;
 }
 
-module.exports = { get, write, create, make_id, submitted };
+module.exports = { get, write, create, make_id, submitted: get_submitted, init };
