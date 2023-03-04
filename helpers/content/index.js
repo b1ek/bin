@@ -21,6 +21,7 @@ async function init() {
             submitted++;
             return;
         });
+    initalized = true;
 }
 init();
 
