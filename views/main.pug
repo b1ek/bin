@@ -11,4 +11,10 @@ block content
             p(style='color:darkred;font-weight:bold;font-size:9pt' align='center')
                 | Max uploads limit exceeded. No more uploads would be accepted.
                 br
-                | Contact site administrator so they would increase the limit or delete some upload.
+                | Contact site administrator so they would increase the limit or delete some uploads.
+                if (process.env.ADMIN_EMAIL)
+                    - let email = process.env.ADMIN_EMAIL;
+                    br
+                    br
+                    | Admin email is: 
+                    a(href='mailto:' + email)= email
