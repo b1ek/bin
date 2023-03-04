@@ -13,6 +13,12 @@ async function upload(req, res) {
     }
 
     const data = req.body.text;
+
+    if (data.length < 8) {
+        res.send('Too short');
+        return;
+    }
+
     const id = await content.create(data);
     res.redirect(
         '/view?id=' + encodeURIComponent(id)
