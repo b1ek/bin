@@ -1,0 +1,8 @@
+extends template/main.pug
+
+block content
+    p(align='center')
+        textarea(class='data' disabled)=data
+        br
+        a(href='/view?id=' + id + '&raw=true    ')
+            input(type='submit' value='Raw text')

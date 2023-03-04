@@ -13,6 +13,12 @@ textarea {
 textarea:hover {
     box-shadow: 0 2px 4px #20402040;
 }
+textarea:disabled {
+    color: black;
+}
+textarea:disabled:hover {
+    color: rgb(61, 61, 61)
+}
 
 .data {
     width: 400px;
